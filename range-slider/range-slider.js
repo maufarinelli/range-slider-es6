@@ -20,6 +20,10 @@ export class RangeSlider {
         this.segment = new SegmentFactory();
     }
 
+    allowDrop(event) {
+        event.preventDefault();
+    }
+
     getSegment() {
         return this.segment;
     }

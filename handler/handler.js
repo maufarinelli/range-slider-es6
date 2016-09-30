@@ -1,4 +1,5 @@
 import angular from 'angular';
+import PositionDisplay from '../position-display/position-display';
 
 export class Handler {
     newPosition;
@@ -7,6 +8,8 @@ export class Handler {
     constructor($element, $timeout) {
         this.$timeout = $timeout;
         this.element = $element;
+
+        console.log(this);
 
         this.onDragEnd();
     }
@@ -30,13 +33,14 @@ export class Handler {
     }
 }
 
-angular.module('handler', [])
+angular.module('handler', ['positionDisplay'])
     .component('handler', {
         controller: Handler,
         controllerAs: 'handler',
         templateUrl: 'handler/handler.html',
         bindings: {
             position: '<',
+            side: '<',
             dragEnd: '&'
         }
     });

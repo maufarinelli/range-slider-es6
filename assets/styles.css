@@ -4,6 +4,9 @@ range-slider {
     width: 100%;
     max-width: 500px;
     height: 100px;
+    background-color: #fff;
+    border: 1px solid #f3f3f3;
+    overflow: hidden;
 }
 
 segment {
@@ -34,11 +37,18 @@ handler:after {
     background-color: #2f4f4f;
 }
 
-.handler-position-display {
+position-display {
+    display: block;
     position: absolute;
     top: -30px;
     left: 10px;
+    right: auto;
     padding: 2px;
     background-color: #fff;
     border: 1px solid #f3f3f3;
+}
+
+position-display.position-display-right {
+    left: auto;
+    right: 10px
 }
