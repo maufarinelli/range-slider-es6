@@ -1,0 +1,15 @@
+<handler
+        position="rangeSlider.getHandlerPosition('left')"
+        drag-end="rangeSlider.handleDragEnd({newPosition: newPosition, side: 'left'})"
+        draggable="true"
+></handler>
+<segment
+        segment="rangeSlider.getSegment()"
+        position="rangeSlider.getHandlerPosition('left')"
+        width="rangeSlider.getWidth(rangeSlider.getSegment())"
+></segment>
+<handler
+        position="rangeSlider.getHandlerPosition('right')"
+        drag-end="rangeSlider.handleDragEnd({newPosition: newPosition, side: 'right'})"
+        draggable="true"
+></handler>
