@@ -1,9 +1,13 @@
 <handler
         position="rangeSlider.getHandlerPosition('left')"
 				side="'left'"
+				scale="rangeSlider.scale"
         drag-end="rangeSlider.handleDragEnd({newPosition: newPosition, side: 'left'})"
         draggable="true"
 ></handler>
+<segment-background position="rangeSlider.initialMin"
+										initial-min="rangeSlider.initialMin"
+										initial-max="rangeSlider.initialMax"></segment-background>
 <segment
         segment="rangeSlider.getSegment()"
         position="rangeSlider.getHandlerPosition('left')"
@@ -12,6 +16,7 @@
 <handler
         position="rangeSlider.getHandlerPosition('right')"
 				side="'right'"
+				scale="rangeSlider.scale"
         drag-end="rangeSlider.handleDragEnd({newPosition: newPosition, side: 'right'})"
         draggable="true"
 ></handler>

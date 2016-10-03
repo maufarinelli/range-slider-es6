@@ -2,14 +2,9 @@ import angular from 'angular';
 import PositionDisplay from '../position-display/position-display';
 
 export class Handler {
-    newPosition;
-    $timeout;
-
     constructor($element, $timeout) {
         this.$timeout = $timeout;
         this.element = $element;
-
-        console.log(this);
 
         this.onDragEnd();
     }
@@ -29,6 +24,7 @@ export class Handler {
     $onChanges(change) {
         if(change.position && change.position.currentValue !== change.position.previousValue) {
             this.element.css('left', this.position + 'px');
+            this.value = this.position * this.scale;
         }
     }
 }
@@ -40,6 +36,7 @@ angular.module('handler', ['positionDisplay'])
         templateUrl: 'handler/handler.html',
         bindings: {
             position: '<',
+            scale: '<',
             side: '<',
             dragEnd: '&'
         }

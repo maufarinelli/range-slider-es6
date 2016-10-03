@@ -1,9 +1,6 @@
 import angular from 'angular';
 
 export class Segment {
-    $element;
-    adjustSegmentPosition
-
     constructor($element) {
         this.$element = $element;
         this.adjustSegmentPosition = 12;
@@ -12,7 +9,7 @@ export class Segment {
     $onChanges(change) {
         if(change.width && change.width.currentValue !== change.width.previousValue) {
             this.$element.css('width', change.width.currentValue + 'px');
-            this.$element.css('transform',  'translateX(' + (this.position + this.adjustSegmentPosition) + 'px)');
+            this.$element.css('transform', 'translateX(' + (this.position + this.adjustSegmentPosition) + 'px)');
         }
     }
 }

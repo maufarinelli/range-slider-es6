@@ -10,7 +10,6 @@ angular.module('positionDisplay', [])
 		controllerAs: 'positionDisplay',
 		templateUrl: 'position-display/position-display.html',
 		bindings: {
-			position: '<',
-			side: '<'
+			value: '<'
 		}
 	});

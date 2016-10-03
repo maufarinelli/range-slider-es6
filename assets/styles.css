@@ -2,11 +2,18 @@ range-slider {
     display: block;
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 540px;
     height: 100px;
     background-color: #fff;
     border: 1px solid #f3f3f3;
     overflow: hidden;
+}
+
+segment-background {
+    display: block;
+    position: absolute;
+    height: 30px;
+    background-color: #f3f3f3;
 }
 
 segment {

@@ -1,23 +1,26 @@
 import angular from 'angular';
 import _ from 'lodash';
 import Segment from '../segment/segment';
+import SegmentBackground from '../segment-background/segment-background';
 import Handler from '../handler/handler';
 
 export class SegmentFactory {
-    constructor() {
+    constructor(min, max, scale) {
         return {
             id: 1,
-            width: 400,
-            posLeft: 0,
-            posRight: 400,
-            scale: 5
+            width: (max / scale),
+            posLeft: (min / scale),
+            posRight: (max / scale),
+            scale: scale
         };
     }
 }
 
 export class RangeSlider {
     constructor() {
-        this.segment = new SegmentFactory();
+        this.segment = new SegmentFactory(this.min, this.max, this.scale);
+        this.initialMin = this.min / this.scale;
+        this.initialMax = this.max / this.scale;
     }
 
     allowDrop(event) {
@@ -42,12 +45,10 @@ export class RangeSlider {
     }
 
     handleDragEnd(change) {
-        console.log('change : ', change);
-
-        if(change.side === 'left') {
+        if(change.side === 'left' && this.initialMin < change.newPosition) {
             this.segment.posLeft = change.newPosition;
         }
-        else if(change.side === 'right') {
+        else if(change.side === 'right' && this.initialMax > change.newPosition) {
             this.segment.posRight = change.newPosition;
         }
 
@@ -56,11 +57,17 @@ export class RangeSlider {
 }
 
 angular.module('rangeSliderModule', [
+    'segmentBackground',
     'segment',
     'handler'
 ])
     .component('rangeSlider', {
         controller: RangeSlider,
         controllerAs: 'rangeSlider',
-        templateUrl: 'range-slider/range-slider.html'
+        templateUrl: 'range-slider/range-slider.html',
+        bindings: {
+            min: '<',
+            max: '<',
+            scale: '<'
+        }
     });
