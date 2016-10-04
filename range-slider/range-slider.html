@@ -2,7 +2,7 @@
         position="rangeSlider.getHandlerPosition('left')"
 				side="'left'"
 				scale="rangeSlider.scale"
-        drag-end="rangeSlider.handleDragEnd({newPosition: newPosition, side: 'left'})"
+        drag-change="rangeSlider.handleDragChange({newPosition: newPosition, side: 'left'})"
         draggable="true"
 ></handler>
 <segment-background position="rangeSlider.initialMin"
@@ -17,6 +17,6 @@
         position="rangeSlider.getHandlerPosition('right')"
 				side="'right'"
 				scale="rangeSlider.scale"
-        drag-end="rangeSlider.handleDragEnd({newPosition: newPosition, side: 'right'})"
+				drag-change="rangeSlider.handleDragChange({newPosition: newPosition, side: 'right'})"
         draggable="true"
 ></handler>

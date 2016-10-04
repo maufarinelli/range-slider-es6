@@ -13,7 +13,10 @@ segment-background {
     display: block;
     position: absolute;
     height: 30px;
-    background-color: #f3f3f3;
+    background-color: #fbfbfb;
+    border-left: 1px solid #f3f3f3;
+    border-right: 1px solid #f3f3f3;
+    box-shadow: 0 -1px #f3f3f3 inset;
 }
 
 segment {

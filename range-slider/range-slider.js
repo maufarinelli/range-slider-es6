@@ -44,12 +44,13 @@ export class RangeSlider {
         }
     }
 
-    handleDragEnd(change) {
-        if(change.side === 'left' && this.initialMin < change.newPosition) {
-            this.segment.posLeft = change.newPosition;
+    handleDragChange(change) {
+        if(change.side === 'left') {
+            this.segment.posLeft = (this.initialMin < change.newPosition) ? change.newPosition : this.initialMin;
+
         }
-        else if(change.side === 'right' && this.initialMax > change.newPosition) {
-            this.segment.posRight = change.newPosition;
+        else if(change.side === 'right') {
+            this.segment.posRight = (this.initialMax > change.newPosition) ? change.newPosition : this.initialMax;
         }
 
         this.segment.width = this.segment.posRight - this.segment.posLeft;

@@ -6,7 +6,21 @@ export class Handler {
         this.$timeout = $timeout;
         this.element = $element;
 
+        this.onDragChange();
         this.onDragEnd();
+    }
+
+    onDragChange() {
+        this.element.on('drag', event => {
+            console.log('DRAG : ', event);
+            this.newPosition = event.clientX;
+
+            this.$timeout(() => {
+                this.dragChange({
+                    newPosition: this.newPosition
+                });
+            });
+        });
     }
 
     onDragEnd() {
@@ -14,7 +28,7 @@ export class Handler {
             this.newPosition = event.clientX;
 
             this.$timeout(() => {
-                this.dragEnd({
+                this.dragChange({
                     newPosition: this.newPosition
                 });
             });
@@ -38,6 +52,7 @@ angular.module('handler', ['positionDisplay'])
             position: '<',
             scale: '<',
             side: '<',
-            dragEnd: '&'
+            dragEnd: '&',
+            dragChange: '&'
         }
     });
